@@ -1,5 +1,6 @@
-@@ -1,184 +1,14 @@
 # amap_location
+1、项目修改自 JZoom 的 https://github.com/best-flutter/flutter_amap_location v0.2.0 版本
+2、修改了两个问题：iOS经纬度反解析问题、android打包依赖问题
 
 <p align="center">
     <a href="https://pub.dartlang.org/packages/amap_location">
