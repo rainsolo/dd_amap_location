@@ -1,7 +1,8 @@
-# amap_location
 1、项目修改自 JZoom 的 https://github.com/best-flutter/flutter_amap_location v0.2.0 版本
-2、修改了两个问题：iOS经纬度反解析问题、android打包依赖问题
 
+2、修改了两个问题：iOS经纬度反解析问题、android打包依赖问题（Amap v4.6.0）
+
+# amap_location
 <p align="center">
     <a href="https://pub.dartlang.org/packages/amap_location">
         <img src="https://img.shields.io/pub/v/amap_location.svg" alt="pub package" />
@@ -18,7 +19,7 @@
 
 目前实现直接获取定位和监听定位功能。
 
-注意：随着flutter版本的提升， 本项目也会随之更新，
+//注意：随着flutter版本的提升， 本项目也会随之更新，
 
 
 感谢群友 [@a396901990](https://github.com/a396901990) ,目前已经修复了因为使用simple_permissions导致ios不能编译使用的问题
