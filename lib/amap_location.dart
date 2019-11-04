@@ -179,6 +179,10 @@ class AMapLocationClient {
   /// 直接获取到定位，不必先启用监听
   /// @param needsAddress 是否需要详细地址信息
   static Future<AMapLocation> getLocation(AMapLocationOption option) async {
+
+//    var defaultOption = AMapLocationOption().toMap();
+//    defaultOption.addAll(option.toMap());
+
     final dynamic location =
         await _channel.invokeMethod('getLocation', option.toMap());
     return AMapLocation.fromMap(location);

@@ -229,7 +229,7 @@ public class AMapLocationPlugin implements MethodCallHandler {
      * this.needsAddress : true,
      * this.onceLocation : false,
      * this.onceLocationLatest : false,
-     * this.locationProtocal : AMapLocationProtocol.HTTP,
+     * this.locationProtocol : AMapLocationProtocol.HTTP,
      * this.sensorEnable : false,
      * this.wifiScan : true,
      * this.locationCacheEnable : true,
@@ -253,7 +253,7 @@ public class AMapLocationPlugin implements MethodCallHandler {
         option.setNeedAddress((Boolean) getOrDefault(arguments, "needsAddress", true));//可选，设置是否返回逆地理地址信息。默认是true
         option.setOnceLocation((Boolean) getOrDefault(arguments, "onceLocation", false));//可选，设置是否单次定位。默认是false
         option.setOnceLocationLatest((Boolean) getOrDefault(arguments, "onceLocationLatest", false));//可选，设置是否等待wifi刷新，默认为false.如果设置为true,会自动变为单次定位，持续定位时不要使用
-        AMapLocationClientOption.setLocationProtocol(AMapLocationClientOption.AMapLocationProtocol.valueOf((String) arguments.get("locationProtocal")));//可选， 设置网络请求的协议。可选HTTP或者HTTPS。默认为HTTP
+        AMapLocationClientOption.setLocationProtocol(AMapLocationClientOption.AMapLocationProtocol.valueOf((String) arguments.get("locationProtocol")));//可选， 设置网络请求的协议。可选HTTP或者HTTPS。默认为HTTP
         option.setSensorEnable((Boolean) getOrDefault(arguments, "sensorEnable", false));//可选，设置是否使用传感器。默认是false
         option.setWifiScan((Boolean) getOrDefault(arguments, "wifiScan", true)); //可选，设置是否开启wifi扫描。默认为true，如果设置为false会同时停止主动刷新，停止以后完全依赖于系统刷新，定位位置可能存在误差
         option.setLocationCacheEnable((Boolean) getOrDefault(arguments, "locationCacheEnable", true)); //可选，设置是否使用缓存定位，默认为true

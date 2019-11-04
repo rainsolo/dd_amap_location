@@ -45,7 +45,7 @@ class AMapLocationOption {
   final bool onceLocationLatest;
 
   //可选， 设置网络请求的协议。可选HTTP或者HTTPS。默认为HTTP
-  final AMapLocationProtocol locationProtocal;
+  final AMapLocationProtocol locationProtocol;
 
   //可选，设置是否使用传感器。默认是false
   final bool sensorEnable;
@@ -112,7 +112,7 @@ class AMapLocationOption {
     this.needsAddress: true,
     this.onceLocation: false,
     this.onceLocationLatest: false,
-    this.locationProtocal: AMapLocationProtocol.HTTPS,
+    this.locationProtocol: AMapLocationProtocol.HTTPS,
     this.sensorEnable: false,
     this.wifiScan: true,
     this.locationCacheEnable: true,
@@ -128,8 +128,8 @@ class AMapLocationOption {
     this.geoLanguage: GeoLanguage.DEFAULT,
   });
 
-  String getLocationProtocal() {
-    return locationProtocal == AMapLocationProtocol.HTTP ? "HTTP" : "HTTPS";
+  String getLocationProtocol() {
+    return locationProtocol == AMapLocationProtocol.HTTP ? "HTTP" : "HTTPS";
   }
 
   String getGeoLanguage() {
@@ -185,7 +185,7 @@ class AMapLocationOption {
         "needsAddress": needsAddress,
         "onceLocation": onceLocation,
         "onceLocationLatest": onceLocationLatest,
-        "locationProtocal": getLocationProtocal(),
+        "locationProtocol": getLocationProtocol(),
         "sensorEnable": sensorEnable,
         "wifiScan": wifiScan,
         "locationCacheEnable": locationCacheEnable,
@@ -202,7 +202,8 @@ class AMapLocationOption {
         "reGeocodeTimeout": reGeocodeTimeout,
         "detectRiskOfFakeLocation": detectRiskOfFakeLocation,
         "distanceFilter": distanceFilter,
-        "geoLanguage": getGeoLanguage()
+        "geoLanguage": getGeoLanguage(),
+        "needsAddress": needsAddress,
       };
     }
   }
