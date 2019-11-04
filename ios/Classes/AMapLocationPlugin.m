@@ -1,4 +1,4 @@
-#import "AmapLocationPlugin.h"
+#import "AMapLocationPlugin.h"
 
 #import <AMapFoundationKit/AMapFoundationKit.h>
 #import <AMapLocationKit/AMapLocationKit.h>
@@ -14,7 +14,7 @@ static NSDictionary* DesiredAccuracy = @{@"kCLLocationAccuracyBest":@(kCLLocatio
                                          };*/
 
 
-@interface AmapLocationPlugin()<AMapLocationManagerDelegate>
+@interface AMapLocationPlugin()<AMapLocationManagerDelegate>
 
 @property (nonatomic, retain)  AMapLocationManager *locationManager;
 @property (nonatomic, copy) AMapLocatingCompletionBlock completionBlock;
@@ -22,13 +22,13 @@ static NSDictionary* DesiredAccuracy = @{@"kCLLocationAccuracyBest":@(kCLLocatio
 
 @end
 
-@implementation AmapLocationPlugin
+@implementation AMapLocationPlugin
 
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
     FlutterMethodChannel* channel = [FlutterMethodChannel
                                      methodChannelWithName:@"amap_location"
                                      binaryMessenger:[registrar messenger]];
-    AmapLocationPlugin* instance = [[AmapLocationPlugin alloc] init];
+    AMapLocationPlugin* instance = [[AMapLocationPlugin alloc] init];
     instance.channel = channel;
     [registrar addMethodCallDelegate:instance channel:channel];
 }
@@ -145,7 +145,7 @@ static NSDictionary* DesiredAccuracy = @{@"kCLLocationAccuracyBest":@(kCLLocatio
             NSLog(@"定位错误:{%ld - %@};", (long)error.code, error.localizedDescription);
             result(@{
                      @"code":@(error.code),
-                     @"description":[AmapLocationPlugin checkNull:error.localizedDescription],
+                     @"description":[AMapLocationPlugin checkNull:error.localizedDescription],
                      @"success":@(NO),
                      });
             return;
@@ -167,7 +167,7 @@ static NSDictionary* DesiredAccuracy = @{@"kCLLocationAccuracyBest":@(kCLLocatio
             NSLog(@"存在虚拟定位的风险:{%ld - %@};", (long)error.code, error.localizedDescription);
             result(@{
                      @"code":@(error.code),
-                     @"description":[AmapLocationPlugin checkNull:error.localizedDescription],
+                     @"description":[AMapLocationPlugin checkNull:error.localizedDescription],
                      @"success":@(NO),
                      });
             return;
@@ -177,17 +177,17 @@ static NSDictionary* DesiredAccuracy = @{@"kCLLocationAccuracyBest":@(kCLLocatio
             //没有错误：location有返回值，regeocode是否有返回值取决于是否进行逆地理操作，进行annotation的添加
         }
         
-        NSMutableDictionary* md = [[NSMutableDictionary alloc]initWithDictionary: [AmapLocationPlugin location2map:location]  ];
+        NSMutableDictionary* md = [[NSMutableDictionary alloc]initWithDictionary: [AMapLocationPlugin location2map:location]  ];
         if (regeocode)
         {
-            [md addEntriesFromDictionary:[AmapLocationPlugin regeocode2map:regeocode]];
+            [md addEntriesFromDictionary:[AMapLocationPlugin regeocode2map:regeocode]];
             md[@"code"] = @0;
             md[@"success"] = @YES;
         }
         else
         {
             md[@"code"]=@(error.code);
-            md[@"description"]= [AmapLocationPlugin checkNull:error.localizedDescription];
+            md[@"description"]= [AMapLocationPlugin checkNull:error.localizedDescription];
             md[@"success"] = @YES;
         }
         
@@ -262,9 +262,9 @@ static NSDictionary* DesiredAccuracy = @{@"kCLLocationAccuracyBest":@(kCLLocatio
  */
 - (void)amapLocationManager:(AMapLocationManager *)manager didUpdateLocation:(CLLocation *)location reGeocode:(AMapLocationReGeocode *)reGeocode{
     
-    NSMutableDictionary* md = [[NSMutableDictionary alloc]initWithDictionary: [AmapLocationPlugin location2map:location]  ];
+    NSMutableDictionary* md = [[NSMutableDictionary alloc]initWithDictionary: [AMapLocationPlugin location2map:location]  ];
     if(reGeocode){
-        [md addEntriesFromDictionary:[ AmapLocationPlugin regeocode2map:reGeocode ]];
+        [md addEntriesFromDictionary:[AMapLocationPlugin regeocode2map:reGeocode ]];
     }
     
     md[@"success"]=@YES;
@@ -298,7 +298,7 @@ static NSDictionary* DesiredAccuracy = @{@"kCLLocationAccuracyBest":@(kCLLocatio
     
     [self.channel invokeMethod:@"updateLocation" arguments:@{
                                                              @"code":@(error.code),
-                                                             @"description":[AmapLocationPlugin checkNull:error.localizedDescription],
+                                                             @"description":[AMapLocationPlugin checkNull:error.localizedDescription],
                                                              @"success":@NO,
                                                              }];
 
