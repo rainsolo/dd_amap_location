@@ -28,12 +28,12 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/simple_permissions/ios"
 
 SPEC CHECKSUMS:
-  amap_location: 738b2c0fb7c62b26af20ebc65018b7bdc0bd7a6d
+  amap_location: a3e2a140bb25950d4e97560ce1b00e53a121e4f4
   AMapFoundation: 20fce2a12cd152e1092afdd04379cdac21932185
   AMapLocation: cf024b53dc03663efb4ea4bcce27d4cce58bb97a
-  Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
-  simple_permissions: 8ea52208b437f8fae29d97a55fe00b705a53246b
+  Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
+  simple_permissions: 149cd87a11f83c24bf99f6e8a82f9fc8b70be233
 
 PODFILE CHECKSUM: aff02bfeed411c636180d6812254b2daeea14d09
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.2
