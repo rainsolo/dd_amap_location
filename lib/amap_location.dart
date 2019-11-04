@@ -178,9 +178,9 @@ class AMapLocationClient {
 
   /// 直接获取到定位，不必先启用监听
   /// @param needsAddress 是否需要详细地址信息
-  static Future<AMapLocation> getLocation(bool needsAddress) async {
+  static Future<AMapLocation> getLocation(AMapLocationOption option) async {
     final dynamic location =
-        await _channel.invokeMethod('getLocation', needsAddress);
+        await _channel.invokeMethod('getLocation', option.toMap());
     return AMapLocation.fromMap(location);
   }
 
@@ -193,7 +193,7 @@ class AMapLocationClient {
 
   /// 更新选项，如果已经在监听，那么要先停止监听，再调用这个函数
   static Future<bool> updateOption(AMapLocationOption option) async {
-    return await _channel.invokeMethod("updateOption", option);
+    return await _channel.invokeMethod("updateOption", option.toMap());
   }
 
   static Future<bool> shutdown() async {

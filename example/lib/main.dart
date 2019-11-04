@@ -49,7 +49,7 @@ class _LocationGetState extends State {
         return;
       }
     }
-    AMapLocation loc = await AMapLocationClient.getLocation(true);
+    AMapLocation loc = await AMapLocationClient.getLocation(AMapLocationOption(onceLocation: true));
     setState(() {
       _loc = loc;
     });

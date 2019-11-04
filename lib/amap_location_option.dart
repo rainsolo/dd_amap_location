@@ -112,7 +112,7 @@ class AMapLocationOption {
     this.needsAddress: true,
     this.onceLocation: false,
     this.onceLocationLatest: false,
-    this.locationProtocal: AMapLocationProtocol.HTTP,
+    this.locationProtocal: AMapLocationProtocol.HTTPS,
     this.sensorEnable: false,
     this.wifiScan: true,
     this.locationCacheEnable: true,

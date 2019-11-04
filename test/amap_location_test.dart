@@ -16,6 +16,6 @@ void main() {
   });
 
   test('getPlatformVersion', () async {
-    expect(await AMapLocationClient.getLocation(true), '42');
+    expect(await AMapLocationClient.getLocation(AMapLocationOption(onceLocation: true)), '42');
   });
 }
